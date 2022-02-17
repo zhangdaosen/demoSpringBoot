@@ -44,6 +44,7 @@ public class HttpRequest {
         if (!file.exists()) {
             file.mkdirs();
         }
+        System.out.println("1213");
         FileOutputStream fos = new FileOutputStream("D:\\ipdoc\\upload\\tmcase\\image\\67\\111.png");
 
         httpClient.close();
