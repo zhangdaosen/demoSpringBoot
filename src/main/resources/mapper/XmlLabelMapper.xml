@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mysqlPlus.dao.master.XmlLabelDao">
+  <resultMap id="BaseResultMap" type="com.example.demo.xml.model.XmlLabel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parentId" jdbcType="INTEGER" property="parentId" />
+    <result column="levelStr" jdbcType="VARCHAR" property="levelStr" />
+    <result column="labelName" jdbcType="VARCHAR" property="labelName" />
+    <result column="valueProperty" jdbcType="VARCHAR" property="valueProperty" />
+    <result column="xmlType" jdbcType="VARCHAR" property="xmlType" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parentId, levelStr, labelName, valueProperty, xmlType, memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xml_label
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryByParentId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xml_label
+    where parentId = #{parentId,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryByXmlType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xml_label
+    where xmlType = #{xmlType,jdbcType=VARCHAR}
+  </select>
+  <select id="queryDate" resultType="map">
+    select
+    *
+    from gg
+
+  </select>
+
+</mapper>
